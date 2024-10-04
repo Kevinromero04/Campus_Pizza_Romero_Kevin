@@ -21,10 +21,19 @@ INNER JOIN pedido_productos PP ON P.pedido_id = PP.pedido_id;
 
 
 -- 4. Adiciones más solicitadas en pedidos personalizados
+SELECT A.nombre AS adicion_mas_solicitada
+FROM adiciones A 
+INNER JOIN pedido_productos PP ON A.adicion_id = PP.pedido_id;
 
 -- 5. Cantidad total de productos vendidos por categoría
+SELECT P.nombre AS NOMBRE, PP.cantidad
+FROM pedido_productos PP 
+INNER JOIN productos P ON PP.pedido_id = P.producto_id,
+
 
 -- 6. Promedio de pizzas pedidas por cliente
+SELECT AVG(PP.cantidad) AS promedio_de_pizzas_vendidas
+FROM pedido_productos pp;
 
 -- 7. Total de ventas por día de la semana
 
